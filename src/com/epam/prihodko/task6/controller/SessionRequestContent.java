@@ -7,6 +7,8 @@ public class SessionRequestContent {
     private HashMap<String, Object> requestAttributes;
     private HashMap<String, String[]> requestParameters;
     private HashMap<String, Object> sessionAttributes;
+    //вот тут надо извлекать и ипередавать инфу из(в) запрос(а). а не в Action Factory
+    //ибо нельзя передавать свобожно параметр реквеста в бизнес-логику!!!
 //метод извлечение инфы тз запроса
     public void extractValues(HttpServletRequest request){
 //реализация

@@ -8,7 +8,7 @@
 </head>
 <body>
 <form name ="loginForm" action="controller" method="post">
-    <input type="hidden" name="command" value="login"/>
+    <input type="hidden" id="command" name="command" value=""/>
     <table>
         <tr>
             <td>Login:</td>
@@ -22,7 +22,7 @@
     <br/>${errorLoginPassMessage}
          ${wrongAction}
          ${nullPage}
-    <br/><input type="submit" value="Log in">
+    <br/><input type="submit" onclick="document.getElementById('command').value='login';" value="Log in">
     <br/>
 </form>
 </body>
