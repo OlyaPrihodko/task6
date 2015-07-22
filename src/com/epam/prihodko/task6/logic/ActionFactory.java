@@ -6,7 +6,8 @@ import com.epam.prihodko.task6.logic.impl.EmptyCommand;
 import javax.servlet.http.HttpServletRequest;
 
 public class ActionFactory {
-    public ActionCommand defineCommand(HttpServletRequest request){//тут потом поменят на SessionRequestContent
+    public ActionCommand defineCommand(HttpServletRequest request){
+    //тут потом поменят на SessionRequestContent
         ActionCommand current = new EmptyCommand();
         //извлечение имени команды из запроса
         String action = request.getParameter(RequestParameterName.COMMAND_NAME);
@@ -17,7 +18,6 @@ public class ActionFactory {
         //получение объекта
        // try{
             CommandEnum currentEnum =  CommandEnum.valueOf(action.toUpperCase());
-
             current = currentEnum.getCurrentCommand();
 
        /* }catch (IllegalAccessException e){
@@ -25,5 +25,4 @@ public class ActionFactory {
         }*/
         return current;
     }
-
 }

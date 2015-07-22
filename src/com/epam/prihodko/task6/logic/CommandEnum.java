@@ -2,6 +2,7 @@ package com.epam.prihodko.task6.logic;
 
 import com.epam.prihodko.task6.logic.impl.LoginCommand;
 import com.epam.prihodko.task6.logic.impl.LogoutCommand;
+import com.epam.prihodko.task6.logic.impl.SignUpCommand;
 
 public enum CommandEnum {
     LOGIN{
@@ -12,6 +13,12 @@ public enum CommandEnum {
     LOGOUT{
         {
             this.command = new LogoutCommand();
+        }
+
+    },
+    SIGNUP{
+        {
+            this.command = new SignUpCommand();
         }
     };
     ActionCommand command;

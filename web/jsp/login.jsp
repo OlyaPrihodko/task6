@@ -23,7 +23,9 @@
          ${wrongAction}
          ${nullPage}
     <br/><input type="submit" onclick="document.getElementById('command').value='login';" value="Log in">
-    <br/>
+           <%--<input type="submit" onclick="document.getElementById('command').value='signup';" value="Sign up">--%>
+  <br/>
+    <a href="/jsp/signup.jsp">Sign up</a>
 </form>
 </body>
 </html>
