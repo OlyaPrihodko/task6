@@ -5,6 +5,7 @@ import com.epam.prihodko.task6.logic.impl.LogoutCommand;
 import com.epam.prihodko.task6.logic.impl.SignUpCommand;
 
 public enum CommandEnum {
+
     LOGIN{
         {
             this.command = new LoginCommand();

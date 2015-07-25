@@ -4,6 +4,7 @@
     <title></title>
 </head>
 <body>
+<form name ="signupForm" action="controller" method="post">
 <h3>Please, enter your new login & password</h3>
 <input type="hidden" id="command" name="command" value=""/>
 <table>
@@ -18,5 +19,6 @@
 </table>
 <br/><input type="submit" onclick="document.getElementById('command').value='signup';" value="Sign up">
 <br/><a href="/jsp/login.jsp">Previous Page</a>
+    </form>
 </body>
 </html>

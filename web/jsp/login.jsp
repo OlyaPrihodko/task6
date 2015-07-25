@@ -1,31 +1,45 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<html>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="/com.epam.prihodko.task6/localization.locale" var="loc"/>
+<fmt:message bundle="${loc}" key="locale.message.Login" var="Login"/>
+<fmt:message bundle="${loc}" key="locale.message.Password" var="Password"/>
+<!DOCTYPE html>
+<html lang="${language}">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Log in</title>
 </head>
 <body>
-<form name ="loginForm" action="controller" method="post">
+<form>
+    <div align="right">
+        <select id="language" name="language" onchange="submit()">
+        <option value="en_EN" ${language == 'en_EN' ? 'selected' : ''}>English</option>
+        <option value="ru_RU" ${language == 'ru_RU' ? 'selected' : ''}>Русский</option>
+    </select>
+    </div>
+</form>
+
+
+<form action="controller" method="post">
     <input type="hidden" id="command" name="command" value=""/>
-    <table>
+    <table >
         <tr>
-            <td>Login:</td>
+            <td>${Login}</td>
             <td><input type="text" name="login" value=""></td>
         </tr>
         <tr>
-            <td>Password:</td>
+            <td>${Password}</td>
             <td><input type="password" name="password"  value=""></td>
         </tr>
     </table>
-    <br/>${errorLoginPassMessage}
-         ${wrongAction}
-         ${nullPage}
-    <br/><input type="submit" onclick="document.getElementById('command').value='login';" value="Log in">
-           <%--<input type="submit" onclick="document.getElementById('command').value='signup';" value="Sign up">--%>
-  <br/>
-    <a href="/jsp/signup.jsp">Sign up</a>
+    <br/>
+    ${errorLoginPassMessage}
+    ${wrongAction}
+    ${nullPage}
+    <br/>
+    <input type="submit" onclick="document.getElementById('command').value='login';" value="${Login}">
 </form>
 </body>
 </html>

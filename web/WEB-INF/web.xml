@@ -26,6 +26,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="task6_ID" version="2.5">
         <servlet-name>Controller</servlet-name>
         <servlet-class>com.epam.prihodko.task6.controller.Controller</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern>/controller</url-pattern>

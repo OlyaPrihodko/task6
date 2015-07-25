@@ -7,11 +7,36 @@
     </database-info>
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <schema name="" catalog="hoteldb"/>
+    <table name="human" schema="" catalog="hoteldb" type="TABLE">
+      <column name="hum_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="hum_name" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12"/>
+      <column name="hum_sname" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12"/>
+      <column name="hum_email" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12"/>
+      <column name="hum_reg_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="hum_id"/>
+      <foreign-key name="human_ibfk_1" columns="hum_reg_id" ref-table="registr" ref-schema="" ref-catalog="hoteldb" ref-columns="reg_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="human_ibfk_2" columns="hum_reg_id" ref-table="registr" ref-schema="" ref-catalog="hoteldb" ref-columns="reg_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <foreign-key name="human_ibfk_3" columns="hum_reg_id" ref-table="registr" ref-schema="" ref-catalog="hoteldb" ref-columns="reg_id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <exported-key name="order_ibfk_1" table="order" schema="" catalog="hoteldb" columns="ord_clientid"/>
+    </table>
+    <table name="order" schema="" catalog="hoteldb" type="TABLE">
+      <column name="ord_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="ord_couchette" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="ord_roomnub" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="ord_datein" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="ord_dateout" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="ord_clientid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ord_id"/>
+      <foreign-key name="order_ibfk_1" columns="ord_clientid" ref-table="human" ref-schema="" ref-catalog="hoteldb" ref-columns="hum_id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
     <table name="registr" schema="" catalog="hoteldb" type="TABLE">
       <column name="reg_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="reg_login" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
       <column name="reg_password" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="reg_id"/>
+      <exported-key name="human_ibfk_1" table="human" schema="" catalog="hoteldb" columns="hum_reg_id"/>
+      <exported-key name="human_ibfk_2" table="human" schema="" catalog="hoteldb" columns="hum_reg_id"/>
+      <exported-key name="human_ibfk_3" table="human" schema="" catalog="hoteldb" columns="hum_reg_id"/>
     </table>
   </data-source>
 </component>
