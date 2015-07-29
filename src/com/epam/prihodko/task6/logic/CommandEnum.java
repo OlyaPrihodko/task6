@@ -23,7 +23,7 @@ public enum CommandEnum {
         }
     };
     ActionCommand command;
-    public ActionCommand getCurrentCommand(){
-        return command;
+
+    public ActionCommand getCurrentCommand(){return command;
     }
 }

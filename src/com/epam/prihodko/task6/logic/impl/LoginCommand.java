@@ -16,10 +16,9 @@ public class LoginCommand implements ActionCommand {
         String page = null;
         String login = request.getParameter(RequestParameterName.PARAM_NAME_LOGIN);
         String pass = request.getParameter(RequestParameterName.PARAM_NAME_PASSWORD);
-        //проверка логина и пароля
+
         if(LoginDao.checkLogin(login, pass)){
             request.setAttribute("user", login);
-            //определение пуьт к main.jsp
             page = ConfigurationManager.getProperty(JSPPageName.MAIN_PAGE);
 
         }else{

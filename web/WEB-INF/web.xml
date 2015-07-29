@@ -13,7 +13,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="task6_ID" version="2.5">
         <location>/jsp/error/error.jsp</location>
     </error-page>
     <description>MySQL</description>
-
     <resource-ref>
         <description>MySqL DB Connection Pool</description>
         <res-ref-name>jdbc/hoteldb</res-ref-name>
@@ -26,7 +25,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="task6_ID" version="2.5">
         <servlet-name>Controller</servlet-name>
         <servlet-class>com.epam.prihodko.task6.controller.Controller</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern>/controller</url-pattern>
